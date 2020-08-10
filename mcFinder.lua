@@ -7,9 +7,9 @@ function ReceiveFriendMsg(CurrentQQ, data)
     return 1
 end
 function ReceiveGroupMsg(CurrentQQ, data)
-    if data.FromUin ==2126622797 then --防止自我复读（换成自己的botQQ号）
+    if data.FromUin ==2126622797 then --防止自我复读
 		  return 1 end
-if (string.find(data.Content, "!mc") == 1 or string.find(data.Content, "！mc") == 1) then
+if (string.find(data.Content, "!mc") == 1 or string.find(data.Content, "！mc") == 1) then 
     if(string.find(data.Content, "!") == 1) then
         key = data.Content:gsub("!mc", "")
     elseif(string.find(data.Content, "！") == 1) then
@@ -20,13 +20,18 @@ if (string.find(data.Content, "!mc") == 1 or string.find(data.Content, "！mc") 
         response, error_message =
             http.request(
             "GET",
-            "https://api.bluesdawn.top/minecraft/server/api?host=" .. key --频率上限10秒内20次
+            "https://api.bluesdawn.top/minecraft/server/api?host=" .. key --频率限制10秒20次
         )
         local mc = response.body
 		local a = json.decode(mc)
 		local _status = a.status
 		if (_status == "Online") then
-		    text = "状态：在线\n人数：" ..a.players.online.. "/" ..a.players.max.. "\nMOTD：" ..a.motd.clean.text.. "\n版本：" ..a.version.version..  "\nPing：" ..a.queryinfo.processed.. ""
+		    if(a.version.version == nil) then
+		        ver = "未知"
+		    else
+		        ver = a.version.version
+		    end
+		    text = "状态：在线\n人数：" ..a.players.online.. "/" ..a.players.max.. "\nMOTD：" ..a.motd.clean.text.. "\n版本：" ..ver..  "\nPing：" ..a.queryinfo.processed.. ""
 		else
 		    text = "连接超时或离线\nConnection refused: no further information"
 		end
@@ -46,9 +51,10 @@ if (string.find(data.Content, "!mc") == 1 or string.find(data.Content, "！mc") 
                 }
             )
             mc = nil
-			a = nil
-			text = nil
-			_status = nil
+	    a = nil
+	    ver = nil
+	    text = nil
+	    _status = nil
     end
         return 1
 end
