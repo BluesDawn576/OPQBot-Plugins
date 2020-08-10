@@ -7,6 +7,8 @@ function ReceiveFriendMsg(CurrentQQ, data)
     return 1
 end
 function ReceiveGroupMsg(CurrentQQ, data)
+    if data.FromUin ==2126622797 then --防止自我复读（换成自己的botQQ号）
+		  return 1 end
 if (string.find(data.Content, "!mc") == 1 or string.find(data.Content, "！mc") == 1) then
     if(string.find(data.Content, "!") == 1) then
         key = data.Content:gsub("!mc", "")
@@ -15,33 +17,21 @@ if (string.find(data.Content, "!mc") == 1 or string.find(data.Content, "！mc") 
     end
     local text = nil
     if(key ~= "") then
-        ApiRet =
-                Api.Api_SendMsg(
-                CurrentQQ,
-                {
-                    toUser = data.FromGroupId,
-                    sendToType = 2,
-                    sendMsgType = "TextMsg", 
-                    groupid = 0,
-                    content = "正在查询，请稍后",
-                    atUser = 0
-                }
-            )
         response, error_message =
             http.request(
             "GET",
-            "https://api.bluesdawn.top/minecraft/server/api?host=" .. key
+            "https://api.bluesdawn.top/minecraft/server/api?host=" .. key --频率上限10秒内20次
         )
         local mc = response.body
 		local a = json.decode(mc)
-		local _status = "" ..a.status.. ""
+		local _status = a.status
 		if (_status == "Online") then
-		    text = "状态: 在线\n人数：" ..a.players.online.. "/" ..a.players.max.. "\nMOTD：" ..a.motd.clean.text.. "\nPing：" ..a.queryinfo.processed.. ""
+		    text = "状态：在线\n人数：" ..a.players.online.. "/" ..a.players.max.. "\nMOTD：" ..a.motd.clean.text.. "\n版本：" ..a.version.version..  "\nPing：" ..a.queryinfo.processed.. ""
 		else
-		    text = "连接超时或离线"
+		    text = "连接超时或离线\nConnection refused: no further information"
 		end
 	else
-	    text = "你查了个寂寞\n!mc <欲查询的服务器地址>"
+	    text = "你查了个寂寞\n!mc [欲查询的服务器地址]"
 	end
             ApiRet =
                 Api.Api_SendMsg(
