@@ -25,11 +25,9 @@ if [ ! -f "$datPath" ] ; then
     touch "$datPath"
     release="0.0"
     snapshot="0.0"
-    echo "文件不存在，初始化版本号"
 else
     release=$(echo $(cat $datPath) | cut -d \, -f 1)
     snapshot=$(echo $(cat $datPath) | cut -d \, -f 2)
-    echo "文件存在"
 fi
 
 str=$(curl -s http://launchermeta.mojang.com/mc/game/version_manifest.json)
