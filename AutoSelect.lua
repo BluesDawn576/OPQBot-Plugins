@@ -16,12 +16,14 @@ function ReceiveGroupMsg(CurrentQQ, data)
     else
         return 1
     end
-    if(string.find(rowkey, "还是") ~= 0) then
+    if(string.find(rowkey, "还是") ~= nil) then
         key = string.split(rowkey, "还是")
         text = key[math.random(table.getn(key))]
-    elseif(string.find(rowkey, " or ") ~= 0) then
+    elseif(string.find(rowkey, " or ") ~= nil) then
         key = string.split(rowkey, " or ")
         text = key[math.random(table.getn(key))]
+    else
+        return 1
     end
     if(text ~= nil) then
         msg = "建议你选择：" .. text .. ""
