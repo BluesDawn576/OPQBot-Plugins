@@ -25,7 +25,7 @@ function ReceiveGroupMsg(CurrentQQ, data)
     else
         return 1
     end
-    if(text ~= nil) then
+    if(text ~= "") then
         msg = "建议你选择：" .. text .. ""
 	else
 	    msg = "找不到选择项\n![选项1]还是[选项2]"
