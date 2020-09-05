@@ -236,8 +236,7 @@ function SetMessage(CurrentQQ,data,text)
 	       sendToType = 2, --2发送给群1发送给好友3私聊
 	       sendMsgType = "TextMsg", --进行文本复读回复
 	       groupid = 0, --不是私聊自然就为0咯
-	       content = "\n" .. text, --回复内容
-	       atUser = data.FromUserId --是否 填上data.FromUserId就可以复读给他并@了
+	       content = "[ATUSER("..data.FromUserId..")]\n" .. text
 	    }
 	)
 	return 1
