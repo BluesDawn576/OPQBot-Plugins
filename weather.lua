@@ -13,7 +13,7 @@ function ReceiveGroupMsg(CurrentQQ, data)
 if (string.find(data.Content, "!云图") == 1 or string.find(data.Content, "！云图") == 1) then
     if data.Content == "!云图" or data.Content == "！云图" then
         url = "https://i.tq121.com.cn/i/weather2015/index/tianqiyubao.png"
-        text = "『BDbot』现已支持的云图\n风云二号全国云图: !云图 fy2\n风云二号西北太平洋云图: !云图 fy2f\n风云四号全国云图: !云图 fy4a\n风云四号全圆盘云图: !云图\n向日葵8号台风机动检测：!云图 台风"
+        text = "『BDbot』现已支持的云图\n风云二号全国云图: !云图 fy2\n风云二号西北太平洋云图: !云图 fy2f\n风云四号全国云图: !云图 fy4a\n风云四号全圆盘云图: !云图\n向日葵8号机动观测：!云图 h8"
     elseif data.Content == "!云图 fy2" or data.Content == "！云图 fy2" or data.Content == "!云图fy2" then
         Time = os.date('!%Y%m%d')
         Hour = os.date('!%H')
@@ -36,7 +36,7 @@ if (string.find(data.Content, "!云图") == 1 or string.find(data.Content, "！�
     elseif data.Content == "!云图 fy4af" or data.Content == "！云图 fy4af" or data.Content == "!云图fy4af" or data.Content == "！云图fy4af" then
         url = "http://img.nsmc.org.cn/CLOUDIMAGE/FY4A/MTCC/FY4A_DISK.JPG" --国家卫星气象中心源
         text = ""
-    elseif data.Content == "!云图 台风" or data.Content == "！云图 台风" or data.Content == "!云图台风" or data.Content == "！云图台风" then
+    elseif data.Content == "!云图 h8" or data.Content == "！云图 h8" or data.Content == "!云图h8" or data.Content == "！云图h8" then
         if tonumber(os.date('%H')) > 7 and tonumber(os.date('%H')) < 17 then --根据主机时区适当修改，需要确保日本时间为白天，不然返回一片黑（
             url = "https://weather-models.info/latest/nocache/himawari/target/vis0.png" --WeatherModels源 真彩色
         else
