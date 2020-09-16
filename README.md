@@ -1,5 +1,6 @@
-# OPQBot-Plugins
-![license](https://img.shields.io/github/license/BluesDawn576/OPQBot-Plugins)
+# BDbot
+![license](https://img.shields.io/github/license/BluesDawn576/OPQBot-Plugins) 
+![status](https://img.shields.io/badge/status-暂停维护-red)
 
 『BDbot』个人插件仓库
 
@@ -9,9 +10,11 @@
 
 #### 音游相关
 
-Arcaea查分（暂不支持best30）
+Arcaea查分
 
-Osu查分（目前仅支持个人信息查询）
+Osu查分 (目前仅支持个人信息查询)
+
+\*bandori邦邦车站 ([BandoriStation](https://github.com/maborosh/BandoriStation)) `!ycm`
 
 #### minecraft相关
 
@@ -47,4 +50,6 @@ MC群定制服务器查询（每群仅支持一个服务器） `查询服务器`
 
 \*当天降水量预报查询（24/48/72，缺省24）`!预报 [小时]`
 
-2020/09/05<br>**BluesDawn576**
+2020/09/16<br>**BluesDawn576**
+
+>9.19开学，跑了））

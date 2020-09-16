@@ -45,7 +45,7 @@ if (string.find(data.Content, "!云图") == 1 or string.find(data.Content, "！�
         text = ""
     else
         url = "https://i.tq121.com.cn/i/weather2015/index/tianqiyubao.png"
-        text = "『BDbot』没有此类云图"
+        text = "没有此类云图"
     end
 elseif (string.find(data.Content, "!预报") == 1 or string.find(data.Content, "！预报") == 1) then
     if(string.find(data.Content, "!") == 1) then
@@ -58,7 +58,7 @@ elseif (string.find(data.Content, "!预报") == 1 or string.find(data.Content, "
     if(key == "24" or key == " 24" or key == "") then
         if(tonumber(os.date('%H')) >= 0 and tonumber(os.date('%H')) <= 6) then
             url = "https://i.tq121.com.cn/i/weather2015/index/tianqiyubao.png"
-            text = "『BDbot』今日还没有24小时降水量预报图，请7点后再试"
+            text = "今日还没有24小时降水量预报图，请7点后再试"
         elseif(tonumber(os.date('%H')) > 6 and tonumber(os.date('%H')) <= 10) then
             url = "http://pi.weather.com.cn/i/product/pic/l/sevp_nmc_stfc_sfer_er24_achn_l88_p9_" ..Time.. "000002400.jpg"
         elseif(tonumber(os.date('%H')) > 10 and tonumber(os.date('%H')) <= 18) then
@@ -69,7 +69,7 @@ elseif (string.find(data.Content, "!预报") == 1 or string.find(data.Content, "
     elseif(key == "48" or key == " 48") then
         if(tonumber(os.date('%H')) >= 0 and tonumber(os.date('%H')) <= 6) then
             url = "https://i.tq121.com.cn/i/weather2015/index/tianqiyubao.png"
-            text = "『BDbot』今日还没有48小时降水量预报图，请7点后再试"
+            text = "今日还没有48小时降水量预报图，请7点后再试"
         elseif(tonumber(os.date('%H')) > 6 and tonumber(os.date('%H')) <= 18) then
             url = "http://pi.weather.com.cn/i/product/pic/l/sevp_nmc_stfc_sfer_er24_achn_l88_p9_" ..Time.. "000004800.jpg"
         elseif(tonumber(os.date('%H')) > 18) then
@@ -78,7 +78,7 @@ elseif (string.find(data.Content, "!预报") == 1 or string.find(data.Content, "
     elseif(key == "72" or key == " 72") then
         if(tonumber(os.date('%H')) >= 0 and tonumber(os.date('%H')) <= 6) then
             url = "https://i.tq121.com.cn/i/weather2015/index/tianqiyubao.png"
-            text = "『BDbot』今日还没有72小时降水量预报图，请7点后再试"
+            text = "今日还没有72小时降水量预报图，请7点后再试"
         elseif(tonumber(os.date('%H')) > 6 and tonumber(os.date('%H')) <= 18) then
             url = "http://pi.weather.com.cn/i/product/pic/l/sevp_nmc_stfc_sfer_er24_achn_l88_p9_" ..Time.. "000007200.jpg"
         elseif(tonumber(os.date('%H')) > 18) then
@@ -86,7 +86,7 @@ elseif (string.find(data.Content, "!预报") == 1 or string.find(data.Content, "
         end
     else
         url = "https://i.tq121.com.cn/i/weather2015/index/tianqiyubao.png"
-        text = "『BDbot』你输入的时长不正确\n!预报 [24/48/72] （缺省24）"
+        text = "你输入的时长不正确\n!预报 [24/48/72] （缺省24）"
     end
 else
     return 1
