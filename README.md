@@ -1,6 +1,8 @@
 # BDbot
 ![license](https://img.shields.io/github/license/BluesDawn576/OPQBot-Plugins) 
-![status](https://img.shields.io/badge/status-暂停维护-red)
+![status](https://img.shields.io/badge/status-停止维护-red)
+
+> 仓库已迁移(重构) -> [BDbot_Plugins](https://github.com/BluesDawn576/BDbot_Plugins)
 
 『BDbot』个人插件仓库
 
@@ -49,7 +51,3 @@ MC群定制服务器查询（每群仅支持一个服务器） `查询服务器`
 + 向日葵8号机动观测 `!云图 h8`
 
 \*当天降水量预报查询（24/48/72，缺省24）`!预报 [小时]`
-
-2020/09/16<br>**BluesDawn576**
-
->9.19开学，跑了））
